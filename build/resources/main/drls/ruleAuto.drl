@@ -1,0 +1,28 @@
+package org.sample 
+
+import java.util.HashMap
+
+rule "Minor age"
+    salience 100
+when
+    m : HashMap( this["age"] < 16  )
+then
+m.replace("marketingDecision", false);
+m.replace("ruleId","Rule1_MINOR_AGE_REJECT");
+System.out.println(m.get("marketingDecision"));
+System.out.println(m.get("ruleId"));
+
+
+end
+
+rule "Middle age lower range_rule_1"
+when
+    m : HashMap( this["age"] > 14 && this["age"] < "" )
+then
+m.replace("marketingDecision", true);
+m.replace("ruleId","Rule2_MID_RANGE_AGE__LOWER");
+System.out.println(m.get("marketingDecision"));
+System.out.println(m.get("ruleId"));
+
+
+end
