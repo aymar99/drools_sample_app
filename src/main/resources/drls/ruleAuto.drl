@@ -17,7 +17,7 @@ end
 
 rule "Middle age lower range_rule_1"
 when
-    m : HashMap( this["age"] > 14 && this["age"] < "" )
+    m : HashMap( this["age"] > 14 && this["clicks"] + this["visits"] > 500 )
 then
 m.replace("marketingDecision", true);
 m.replace("ruleId","Rule2_MID_RANGE_AGE__LOWER");
